@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1> Library Management System</h1>
+            <p>Java OOP Concepts  - Web Interface</p>
+        </header>
+
+        <nav class="menu">
+            <button onclick="showSection('books')" class="nav-btn active">📖 Books</button>
+            <button onclick="showSection('students')" class="nav-btn">👨‍🎓 Students</button>
+            <button onclick="showSection('transactions')" class="nav-btn">🔄 Issue/Return</button>
+            <button onclick="showSection('search')" class="nav-btn">🔍 Search</button>
+        </nav>
+
+        <!-- Books Section -->
+        <div id="books" class="section active">
+            <h2>Book Management</h2>
+            
+            <div class="form-container">
+                <h3>Add New Book</h3>
+                <form id="bookForm">
+                    <input type="text" id="bookTitle" placeholder="Book Title" required>
+                    <input type="text" id="bookAuthor" placeholder="Author" required>
+                    <input type="text" id="bookPublisher" placeholder="Publisher" required>
+                    <input type="number" id="bookQuantity" placeholder="Quantity" min="1" required>
+                    <button type="submit">Add Book</button>
+                </form>
+            </div>
+
+            <div class="data-container">
+                <h3>All Books</h3>
+                <div id="booksList" class="data-list"></div>
+            </div>
+        </div>
+
+        <!-- Students Section -->
+        <div id="students" class="section">
+            <h2>Student Management</h2>
+            
+            <div class="form-container">
+                <h3>Add New Student</h3>
+                <form id="studentForm">
+                    <input type="text" id="studentId" placeholder="Student ID" required>
+                    <input type="text" id="studentName" placeholder="Student Name" required>
+                    <input type="text" id="studentCourse" placeholder="Course" required>
+                    <input type="number" id="studentYear" placeholder="Year" min="1" max="4" required>
+                    <button type="submit">Add Student</button>
+                </form>
+            </div>
+
+            <div class="data-container">
+                <h3>All Students</h3>
+                <div id="studentsList" class="data-list"></div>
+            </div>
+        </div>
+
+        <!-- Transactions Section -->
+        <div id="transactions" class="section">
+            <h2>Issue/Return Books</h2>
+            
+            <div class="form-container">
+                <h3>Issue Book</h3>
+                <form id="issueForm">
+                    <select id="issueStudentId" required>
+                        <option value="">Select Student</option>
+                    </select>
+                    <select id="issueBookId" required>
+                        <option value="">Select Book</option>
+                    </select>
+                    <button type="submit">Issue Book</button>
+                </form>
+            </div>
+
+            <div class="form-container">
+                <h3>Return Book</h3>
+                <form id="returnForm">
+                    <select id="returnStudentId" required>
+                        <option value="">Select Student</option>
+                    </select>
+                    <select id="returnBookId" required>
+                        <option value="">Select Book</option>
+                    </select>
+                    <button type="submit">Return Book</button>
+                </form>
+            </div>
+
+            <div class="data-container">
+                <h3>Active Transactions</h3>
+                <div id="transactionsList" class="data-list"></div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div id="search" class="section">
+            <h2>Search Books (Polymorphism Demo)</h2>
+            
+            <div class="form-container">
+                <h3>Search Options</h3>
+                <div class="search-options">
+                    <label>
+                        <input type="radio" name="searchType" value="title" checked>
+                        Search by Title
+                    </label>
+                    <label>
+                        <input type="radio" name="searchType" value="author">
+                        Search by Author
+                    </label>
+                </div>
+                <form id="searchForm">
+                    <input type="text" id="searchQuery" placeholder="Enter search term" required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <div class="data-container">
+                <h3>Search Results</h3>
+                <div id="searchResults" class="data-list"></div>
+            </div>
+        </div>
+
+        <!-- OOP Concepts Info -->
+        <div class="oop-info">
+            <h3>🎯 OOP Concepts Demonstrated</h3>
+            <div class="concepts">
+                <span class="concept">✓ Encapsulation</span>
+                <span class="concept">✓ Inheritance</span>
+                <span class="concept">✓ Polymorphism</span>
+                <span class="concept">✓ Abstraction</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
