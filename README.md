@@ -1,122 +1,107 @@
 # Library Management System
 
-A Java-based Library Management System demonstrating Object-Oriented Programming concepts with MySQL database integration.
+A complete library management system for cataloging books, managing members, tracking loans, and generating reports.
+
+---
+
+## What It Does
+
+Full library operations:
+- **Catalog Management** - Books, authors, categories, ISBN, copies
+- **Member Management** - Registration, membership tiers, fines
+- **Loan System** - Checkout, return, renewals, reservations
+- **Fine Calculation** - Overdue fines, lost book charges
+- **Reports** - Circulation stats, popular books, overdue lists
+- **Search** - Full-text search, filters, advanced queries
+
+## Technology Stack
+
+| Layer | Technology |
+|-------|------------|
+| Backend | Python (Flask/FastAPI) or Java (Spring Boot) |
+| Frontend | React / Thymeleaf / JSP |
+| Database | MySQL / PostgreSQL / SQLite |
+| Auth | JWT / Session with RBAC |
+
+## Project Structure
+
+```
+library-management-system/
+├── backend/
+│   ├── models/              # Book, Member, Loan, Fine, Category
+│   ├── routes/              # API endpoints
+│   ├── services/            # Business logic
+│   └── main.py / Application.java
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── services/
+│   └── package.json / pom.xml
+├── database/
+│   ├── schema.sql
+│   └── seed_data.sql
+├── tests/
+└── README.md
+```
 
 ## Features
 
-- **Book Management**: Add, view, search books
-- **Student Management**: Add student records
-- **Issue/Return System**: Issue books to students and handle returns
-- **Search Functionality**: Search books by title or author (demonstrates polymorphism)
+### Implemented
+- Book catalog with multiple copies tracking
+- Member registration and management
+- Loan/return/renewal workflow
+- Automatic fine calculation
+- Basic search and filtering
+- Admin dashboard with key metrics
 
-## OOP Concepts Implemented
+### In Progress
+- Reservation/hold queue
+- Email/SMS notifications for due dates
+- Barcode/QR code support
+- Digital resource management (ebooks, journals)
+- Inter-library loan support
 
-1. **Encapsulation**: Private fields with getters/setters in all classes
-2. **Inheritance**: 
-   - `Student` extends `Person`
-   - `Librarian` extends `User`
-3. **Polymorphism**: Method overloading in `LibraryDAO.searchBooks()`
-4. **Abstraction**: Abstract `User` class with abstract `login()` method
+## Database Schema (Core)
 
-## Prerequisites
-
-- Java JDK 8 or higher
-- MySQL Server
-- MySQL JDBC Driver (mysql-connector-java)
-
-## Setup Instructions
-
-### 1. Database Setup
 ```sql
--- Run the database_schema.sql file in MySQL
-mysql -u root -p < database_schema.sql
+books (id, isbn, title, author_id, category_id, publisher, year, total_copies, available_copies)
+authors (id, name, bio)
+categories (id, name, description)
+members (id, member_id, name, email, phone, address, join_date, tier, status)
+loans (id, book_id, member_id, checkout_date, due_date, return_date, status)
+fines (id, loan_id, member_id, amount, reason, paid_status, date)
+reservations (id, book_id, member_id, request_date, expiry_date, status)
 ```
 
-### 2. Update Database Configuration
-Edit `DatabaseConnection.java` and update:
-- URL: `jdbc:mysql://localhost:3306/library_db`
-- USERNAME: Your MySQL username
-- PASSWORD: Your MySQL password
+## Setup
 
-### 3. Add MySQL JDBC Driver
-Download MySQL Connector/J and add to classpath:
 ```bash
-# Download from: https://dev.mysql.com/downloads/connector/j/
-# Add to classpath when compiling and running
+# Backend (Python example)
+cd backend
+pip install -r requirements.txt
+python init_db.py
+python main.py
+
+# Frontend
+cd frontend
+npm install
+npm start
 ```
 
-### 4. Compile and Run
-```bash
-# Navigate to project directory
-cd lib_mag_system
+---
 
-# Compile (with MySQL driver in classpath)
-javac -cp ".:mysql-connector-java-8.0.33.jar" src/*.java
+## Author
 
-# Run (with MySQL driver in classpath)
-java -cp ".:mysql-connector-java-8.0.33.jar:src" LibraryManagement
-```
+**SAMALA RAKSHITH BABU**  
 
-## Usage
+**Contact:**  
+- Email: samalarakshithbabu7@gmail.com  
+- LinkedIn: https://www.linkedin.com/in/samala-rakshith-babu/  
+- GitHub: https://github.com/samalarakshithbabu  
 
-The system provides a console-based menu with the following options:
+---
 
-1. **Add Book** - Add new books to the library
-2. **View Books** - Display all available books
-3. **Add Student** - Register new students
-4. **Issue Book** - Issue a book to a student
-5. **Return Book** - Process book returns
-6. **Search Books** - Search by title or author
-7. **Exit** - Close the application
+## License
 
-## Sample Operations
-
-### Adding a Book
-```
-Enter book title: Clean Code
-Enter author: Robert Martin
-Enter publisher: Prentice Hall
-Enter quantity: 3
-```
-
-### Issuing a Book
-```
-Enter student ID: S001
-Enter book ID: 1
-```
-
-### Searching Books
-```
-Search by: 1. Title  2. Author
-Enter choice: 1
-Enter title to search: Java
-```
-
-## Database Schema
-
-### Tables
-- **books**: bookId, title, author, publisher, quantity
-- **students**: studentId, name, course, year  
-- **transactions**: transactionId, studentId, bookId, dateIssued, dueDate, returnDate
-
-## Class Structure
-
-```
-src/
-├── User.java              # Abstract base class
-├── Person.java            # Base class for inheritance
-├── Student.java           # Student entity (inherits Person)
-├── Librarian.java         # Librarian entity (inherits User)
-├── Book.java              # Book entity
-├── DatabaseConnection.java # Database utility
-├── LibraryDAO.java        # Data access layer
-└── LibraryManagement.java # Main application class
-```
-
-## Future Enhancements
-
-- GUI implementation using Swing/JavaFX
-- Fine management system
-- Book reservation system
-- Advanced reporting features
-- User authentication system
+MIT License
