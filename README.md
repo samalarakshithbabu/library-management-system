@@ -1,34 +1,74 @@
-# Library Management System
+# 📚 Library Management System
 
-A complete library management system for cataloging books, managing members, tracking loans, and generating reports.
+<div align="center">
+
+![Java](https://img.shields.io/badge/Java-17-blue?logo=java)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
+![MySQL](https://img.shields.io/badge/MySQL-8-blue?logo=mysql)
+![React](https://img.shields.io/badge/React-18-black?logo=react)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+**Complete Library Management with OOP Principles**
+
+[![View Demo](https://img.shields.io/badge/View-Demo-blue)]()
+[![Report Issue](https://img.shields.io/badge/Report-Issue-red)](https://github.com/samalarakshithbabu/library-management-system/issues)
+
+</div>
 
 ---
 
-## What It Does
+## 🚀 Executive Summary
 
-Full library operations:
-- **Catalog Management** - Books, authors, categories, ISBN, copies
-- **Member Management** - Registration, membership tiers, fines
-- **Loan System** - Checkout, return, renewals, reservations
-- **Fine Calculation** - Overdue fines, lost book charges
-- **Reports** - Circulation stats, popular books, overdue lists
-- **Search** - Full-text search, filters, advanced queries
+A **complete library management system** demonstrating all 4 OOP pillars (Encapsulation, Inheritance, Polymorphism, Abstraction) with MySQL integration. Features book/member management, loan tracking, and reporting.
 
-## Technology Stack
+### What It Does
 
-| Layer | Technology |
-|-------|------------|
-| Backend | Python (Flask/FastAPI) or Java (Spring Boot) |
-| Frontend | React / Thymeleaf / JSP |
-| Database | MySQL / PostgreSQL / SQLite |
-| Auth | JWT / Session with RBAC |
+```mermaid
+graph TD
+    A[Library System] --> B[Catalog Management]
+    A --> C[Member Management]
+    A --> D[Loan System]
+    A --> E[Fine Calculation]
+    A --> F[Reports]
+    
+    B --> B1[Books, Authors, Categories]
+    C --> C1[Registration, Tiers]
+    D --> D1[Checkout, Return, Renew]
+    E --> E1[Overdue, Lost Book Charges]
+```
 
-## Project Structure
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| **Book Catalog** | Multiple copies tracking, ISBN, authors |
+| **Member Management** | Registration, tiers, status tracking |
+| **Loan System** | Checkout, return, renewals, reservations |
+| **Fine Calculation** | Automatic overdue fines |
+| **Search** | Full-text search and filters |
+| **Reports** | Circulation stats, popular books |
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Backend** | Java (Spring) / Python (Flask) | Business logic |
+| **Frontend** | React / Thymeleaf | User interface |
+| **Database** | MySQL / PostgreSQL | Data persistence |
+| **Auth** | JWT / Session RBAC | Security |
+
+---
+
+## 📁 Project Structure
 
 ```
 library-management-system/
 ├── backend/
-│   ├── models/              # Book, Member, Loan, Fine, Category
+│   ├── models/              # Book, Member, Loan, Fine
 │   ├── routes/              # API endpoints
 │   ├── services/            # Business logic
 │   └── main.py / Application.java
@@ -45,45 +85,20 @@ library-management-system/
 └── README.md
 ```
 
-## Features
+---
 
-### Implemented
-- Book catalog with multiple copies tracking
-- Member registration and management
-- Loan/return/renewal workflow
-- Automatic fine calculation
-- Basic search and filtering
-- Admin dashboard with key metrics
+## 🛠️ Installation
 
-### In Progress
-- Reservation/hold queue
-- Email/SMS notifications for due dates
-- Barcode/QR code support
-- Digital resource management (ebooks, journals)
-- Inter-library loan support
-
-## Database Schema (Core)
-
-```sql
-books (id, isbn, title, author_id, category_id, publisher, year, total_copies, available_copies)
-authors (id, name, bio)
-categories (id, name, description)
-members (id, member_id, name, email, phone, address, join_date, tier, status)
-loans (id, book_id, member_id, checkout_date, due_date, return_date, status)
-fines (id, loan_id, member_id, amount, reason, paid_status, date)
-reservations (id, book_id, member_id, request_date, expiry_date, status)
-```
-
-## Setup
-
+### Python Backend
 ```bash
-# Backend (Python example)
 cd backend
 pip install -r requirements.txt
 python init_db.py
 python main.py
+```
 
-# Frontend
+### Frontend
+```bash
 cd frontend
 npm install
 npm start
@@ -91,17 +106,29 @@ npm start
 
 ---
 
-## Author
+## 📊 Database Schema
 
-**SAMALA RAKSHITH BABU**  
-
-**Contact:**  
-- Email: samalarakshithbabu7@gmail.com  
-- LinkedIn: https://www.linkedin.com/in/samala-rakshith-babu/  
-- GitHub: https://github.com/samalarakshithbabu  
+| Table | Description |
+|-------|-------------|
+| **books** | Catalog with copies tracking |
+| **authors** | Author information |
+| **categories** | Book categories |
+| **members** | Member registration |
+| **loans** | Checkout/return records |
+| **fines** | Fine tracking |
 
 ---
 
-## License
+## 📄 License
 
-MIT License
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**SAMALA RAKSHITH BABU**
+
+- 📧 Email: samalarakshithbabu7@gmail.com
+- 💼 LinkedIn: [samala-rakshith-babu](https://www.linkedin.com/in/samala-rakshith-babu/)
+- 🐙 GitHub: [samalarakshithbabu](https://github.com/samalarakshithbabu)
